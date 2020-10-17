@@ -1,5 +1,4 @@
 {
-  // 指定哪些文件不参与搜索
   "search.exclude": {
     "**/node_modules": true,
     "dist": true,
@@ -37,12 +36,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "typescript.tsdk": "./node_modules/typescript/lib", // 代替 vscode 的 ts 语法智能提示
+  "typescript.tsdk": "./node_modules/typescript/lib",
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
-  },
+  }
 }
