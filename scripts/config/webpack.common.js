@@ -1,5 +1,5 @@
 const { resolve } = require('path')
-const { isDev, APP_PATH } = require('../constants')
+const { DEV, APP_PATH } = require('../constants')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { context } = require('./webpack.dev')
@@ -11,7 +11,7 @@ const getCssLoaders = (importLoaders) => [
 		loader: 'css-loader',
 		options: {
 			modules: false,
-			sourceMap: isDev,
+			sourceMap: DEV,
 			importLoaders,
 		},
 	},
@@ -24,7 +24,7 @@ const getCssLoaders = (importLoaders) => [
 				require('postcss-preset-env')({ autoprefixer: { grid: true, flexbox: 'no-2009' }, stage: 3 }),
 				require('postcss-normalize'),
 			],
-			sourceMap: isDev,
+			sourceMap: DEV,
 		},
 	},
 ]
@@ -34,7 +34,7 @@ module.exports = {
 		app: resolve(APP_PATH, './src/index.tsx'),
 	},
 	output: {
-		filename: `js/[name]${isDev ? '' : '.[hash:32]'}.js`,
+		filename: `js/[name]${DEV ? '' : '.[hash:32]'}.js`,
 		path: resolve(APP_PATH, './dist'),
 	},
 	resolve: {
@@ -58,7 +58,7 @@ module.exports = {
 					{
 						loader: 'less-loader',
 						options: {
-							sourceMap: isDev,
+							sourceMap: DEV,
 						},
 					},
 				],
@@ -70,7 +70,7 @@ module.exports = {
 					{
 						loader: 'scss-loader',
 						options: {
-							sourceMap: isDev,
+							sourceMap: DEV,
 						},
 					},
 				],
@@ -115,7 +115,7 @@ module.exports = {
 			template: resolve(APP_PATH, './public/index.html'),
 			filename: 'index.html',
 			cache: false,
-			minify: isDev
+			minify: DEV
 				? false
 				: {
 						removeAttributeQuotes: true,
